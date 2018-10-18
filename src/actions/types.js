@@ -1,0 +1,13 @@
+export const EMAIL_INPUT_ACTION = "email_input_action";
+export const PASSWORD_INPUT_ACTION = "password_input_action";
+export const    SPINNER_ACTION = "spinner_action";
+export const    ERROR_ACTION = "error_action";
+export const    LOGIN_ACTION = "login_action";
+export const    LOGIN_SUCCESS_ACTION = "login_success_action";
+export const    CREATE_SUCCESS_ACTION = "create_success_action";
+export const    ERROR_LOGIN_ACTION = "error_login_action";
+export const    ERROR_LOGIN_MESSAGE = "Incorrect. Try again ;)"
+export const    UPDATE_TASK_ACTION = "update_task_action";
+export const    CREATE_TASK_ACTION = "create_task_action";
+export const    FETCH_TASKS_ACTION = "fetch_tasks_action";
+export const    REMOVE_TASKS_ACTION = "remove_tasks_action";
