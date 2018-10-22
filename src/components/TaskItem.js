@@ -15,35 +15,57 @@ class TaskItem extends Component {
   }
 
   render() {
+
       const {name, 
             description, 
             dateOnly,
-            uid, 
             timeOnly,} = this.props.item;  
-      const {itemStyle, 
+      const {itemStyleToday, 
+            itemStyleOtherDay,
             textStyleName, 
             textStyleDescript,
             textStyleDate,
-            textStyleTime} = styles    
-
+            textStyleTime} = styles 
+      
     return (
         
-            <TouchableOpacity style={itemStyle}
+            <TouchableOpacity 
+                style={this.props.isToday? itemStyleToday: itemStyleOtherDay}
                 onLongPress={this.onLongPress}
                 >
                 <Text style={textStyleName}>{name}</Text>
                 <Text style={textStyleDescript}>{description}</Text>
-                <Text style={textStyleDate}>{dateOnly}</Text>
+                <Text style={textStyleDate}>{this.props.isToday? 'Today': dateOnly}</Text>
                 <Text style={textStyleTime}>{timeOnly}</Text>
             </TouchableOpacity>
             
     );
   }
 }
-export default connect(null, {removeTaskAction}) (TaskItem);
+const mapStateToProps = (state, ownProps) => {
+    const currentDate = new Date();
+    const isToday = ownProps.item.dateOnly === currentDate.toLocaleDateString();
+    return {isToday};
+}
+
+export default connect(mapStateToProps, {removeTaskAction}) (TaskItem);
 
 const styles = StyleSheet.create({
-    itemStyle: {
+    itemStyleOtherDay: {
+        backgroundColor: '#dfdbe0',
+        opacity: 0.4,
+        minWidth: 300,
+        borderWidth: 2,
+        borderRadius: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 5,
+        padding: 10,
+        shadowColor: 'black',
+        shadowOffset: {width: 5, height: 5},
+        shadowOpacity: 0.5,
+    },
+    itemStyleToday: {
         backgroundColor: '#dfdbe0',
         minWidth: 300,
         borderWidth: 2,

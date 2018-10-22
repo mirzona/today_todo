@@ -18,13 +18,13 @@ class RouterFlux extends React.Component {
                     <Scene key="welcome" component={Welcome}  />
                 </Scene>
                 <Scene key="main" >
-                    <Scene key="task_list" 
+                    <Scene key="task_list" hideNavBar
                             component={TaskList} 
                             title="Today Task(s)"
                             rightTitle="ADD Task" 
                             onRight={() => Actions.task_create()}                                                     
                              />
-                    <Scene key="task_create" component={TaskCreate} title="Task"/>
+                    <Scene key="task_create" component={TaskCreate} />
                 </Scene>  
             </Stack>
         </Router>

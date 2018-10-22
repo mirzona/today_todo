@@ -16,6 +16,7 @@ class DateTimeForm extends Component {
   };
   showPicker = () => {
     this.setState({pickerVisible: true});
+    
   }
   hidePicker = () => {
     this.setState({pickerVisible: false});
@@ -23,11 +24,13 @@ class DateTimeForm extends Component {
   pickPicker = (date) => {
     this.props.updateTaskAction({prop: 'dateOnly', value: date.toLocaleDateString()})
     this.props.updateTaskAction({prop: 'timeOnly', value: date.toLocaleTimeString()})
+    this.props.updateTaskAction({prop: 'taskTime', value: date.getTime()})
+
     this.hidePicker();
   }
   onSaveTask = () => {
-    const {name, description, dateOnly, timeOnly} = this.props;
-    this.props.saveTaskAction({name, description, dateOnly, timeOnly})
+    const {name, description, dateOnly, timeOnly, taskTime} = this.props;
+    this.props.saveTaskAction({name, description, dateOnly, timeOnly, taskTime});
   }
   render() {
     return (
@@ -58,6 +61,7 @@ class DateTimeForm extends Component {
           styleText={{padding: 0}}
           styleTextInput={{
              borderWidth: 1,
+             fontSize: 18,
              borderColor: 'orange',
              marginBottom: 5,
              padding: 10,
@@ -69,13 +73,13 @@ class DateTimeForm extends Component {
         <MyButton
           title='Pick date/time'
           onPress={this.showPicker}
-          styleText={{color: 'green'}}
+          styleText={{color: 'green', fontSize: 18,}}
         />
         <MyButton 
-          title='SAVE'
+          title='SAVE '
           onPress={this.onSaveTask}
-          styleText={{ color: 'white', fontSize: 22,}}
-          style={{backgroundColor: 'green',}}
+          styleText={{ color: 'white', fontSize: 20}}
+          style={{backgroundColor: 'green'}}
         />
         <DateTimePicker 
           isVisible={this.state.pickerVisible}
@@ -83,13 +87,14 @@ class DateTimeForm extends Component {
           onCancel={this.hidePicker}
           mode='datetime'
         />
+        
       </View>
     );
   }
 }
 const mapStateToProps = state => {
-  const {name, description, dateOnly, timeOnly} = state.task;
-  return {name, description, dateOnly, timeOnly};
+  const {name, description, dateOnly, timeOnly, taskTime} = state.task;
+  return {name, description, dateOnly, timeOnly, taskTime};
 }
 export default connect(mapStateToProps, {
   updateTaskAction, saveTaskAction}) (DateTimeForm);

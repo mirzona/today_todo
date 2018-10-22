@@ -13,12 +13,14 @@ const MyHeader = ({title, styleHeader, styleText}) => {
 export default MyHeader;
 const styles = StyleSheet.create({
     headerStyle: {
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 100,
     },
     textStyle: {
         fontSize: 30,
         fontWeight: 'bold',
+        minWidth: 200,
+
     }
 });

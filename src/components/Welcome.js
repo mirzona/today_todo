@@ -58,23 +58,25 @@ import { Actions } from 'react-native-router-flux';
       
       <View style={welcomeStyle}>
           <MyHeader
-            title='TO-day-TO-do'
-            // styleText={{color: 'lightgreen'}}
+            title='TOday-TOdo'
+            styleText={{color: '#63b686',}}
           />
 
           <MyInput
             placeholder='type here...'
+            styleText={{fontSize: 16, minWidth: 100}}
             label='email'
             onChangeText={this.onChangeEmail.bind(this)}
-            styleTextInput={{padding: 10, maxWidth: 200,}}
+            styleTextInput={{padding: 10, maxWidth: 200, fontSize: 18}}
             value={email}
           />
           <MyInput
             placeholder='type here...'
+            styleText={{fontSize: 16, minWidth: 100}}
             label='password'
             onChangeText={this.onChangePassword.bind(this)}
             value={password}
-            styleTextInput={{padding: 10, maxWidth: 200,}}
+            styleTextInput={{padding: 10, maxWidth: 200, fontSize: 18,}}
             secureTextEntry
           />
           

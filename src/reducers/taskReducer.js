@@ -5,6 +5,7 @@ const INITIAL_STATE = {
     description: '',
     dateOnly: '',
     timeOnly: '',
+    taskTime: null,
 }
 export default (state = INITIAL_STATE, action) => {
     switch(action.type) {

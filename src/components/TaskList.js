@@ -22,7 +22,7 @@ class TaskList extends Component {
       
         <View style={styles.viewStyle}>
         <FlatList 
-          data={this.props.tasks}
+          data={this.props.orderByTimeTasks}
           renderItem={this.myRenderItem.bind(this)}
           keyExtractor={item => item.uid}
           ListEmptyComponent={<EmptyTask/>}
@@ -42,14 +42,17 @@ class TaskList extends Component {
 const mapStateToProps = state => {
   
   const tasks = _.map(state.tasks_fetched, (val, uid) => {
-      return {...val, uid}      
+      return {...val, uid}
+
   });
-  return { tasks};
+  const orderByTimeTasks = _.sortBy(tasks,['task', 'taskTime']);
+  return {orderByTimeTasks};
 }
 export default connect(mapStateToProps, {fetchTasksAction}) (TaskList);
 const styles = StyleSheet.create({
   viewStyle: {
-    backgroundColor: '#406b80',
+    backgroundColor: '#63b686',
+    marginTop: 30,
     flex: 1,
     // justifyContent: 'center',
     alignItems: 'center',
