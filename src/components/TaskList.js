@@ -52,7 +52,7 @@ export default connect(mapStateToProps, {fetchTasksAction}) (TaskList);
 const styles = StyleSheet.create({
   viewStyle: {
     backgroundColor: '#63b686',
-    marginTop: 30,
+    marginTop: 20,
     flex: 1,
     // justifyContent: 'center',
     alignItems: 'center',
