@@ -11,3 +11,4 @@ export const    UPDATE_TASK_ACTION = "update_task_action";
 export const    CREATE_TASK_ACTION = "create_task_action";
 export const    FETCH_TASKS_ACTION = "fetch_tasks_action";
 export const    REMOVE_TASKS_ACTION = "remove_tasks_action";
+export const    NO_TASKS_MESSAGE = "No tasks for today!";

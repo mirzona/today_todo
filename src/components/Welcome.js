@@ -6,8 +6,6 @@ import MyButton from '../common/MyButton';
 import MyHeader from '../common/MyHeader';
 import MySpinner from '../common/MySpinner';
 import * as actions from '../actions';
-import firebase from 'firebase';
-import { Actions } from 'react-native-router-flux';
 
 
  class Welcome extends Component {

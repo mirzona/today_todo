@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
         borderLeftWidth: 1,
         borderRightWidth: 1,
         borderRadius: 10,
-        // paddingLeft: 10,
         paddingRight: 10,
     }
 });

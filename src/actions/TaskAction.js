@@ -1,4 +1,6 @@
-import { UPDATE_TASK_ACTION, CREATE_TASK_ACTION, FETCH_TASKS_ACTION } from "./types";
+import { UPDATE_TASK_ACTION, 
+    CREATE_TASK_ACTION, 
+    FETCH_TASKS_ACTION } from "./types";
 import firebase, { auth } from 'firebase';
 import { Actions } from "react-native-router-flux";
 import { ToastAndroid } from 'react-native';
@@ -27,9 +29,7 @@ export const saveTaskAction = ({name, description, dateOnly, timeOnly, taskTime}
 }
 export const fetchTasksAction = () => {
     return (dispatch) => {        
-        // const date = new Date();
         const {currentUser} = firebase.auth();
-        // const today = date.toLocaleDateString();
         firebase.database().ref(`/users/${currentUser.uid}/task`)
         .orderByChild('taskTime')
             .on('value', snapshot => {

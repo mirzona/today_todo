@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { NO_TASKS_MESSAGE } from '../actions/types';
 
 const EmptyTask = () => {
       return(
         <View style={styles.container}>
-          <Text style={styles.textStyle}>No tasks for today!</Text>
+          <Text style={styles.textStyle}>{NO_TASKS_MESSAGE}</Text>
         </View>
       );
     }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { View, 
-    Text, 
+import { Text, 
     StyleSheet,
     ToastAndroid, 
     TouchableOpacity } from 'react-native';

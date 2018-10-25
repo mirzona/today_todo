@@ -3,7 +3,6 @@ import {Router, Scene, Stack, Actions} from 'react-native-router-flux';
 import Welcome from './components/Welcome';
 import TaskList from './components/TaskList';
 import TaskCreate from './components/TaskCreate';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 
